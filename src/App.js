@@ -6,6 +6,8 @@ class App extends React.Component {
         return (
             <div>
                 <h1>App</h1>
+                <Cards/>
+                <Chart/>
                 <CountryPicker/>
             </div>
         )
