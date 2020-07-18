@@ -1,9 +1,9 @@
 import React, { useState  , useEffect} from 'react'
 import {fetchDailyData} from '../../Api'
-import { Line   } from 'react-chartjs-2';
+import { Line  , Bar } from 'react-chartjs-2';
 import  './Chart.css'
 
- const Charts = ({data , country}) => {
+ const Charts = ({data : {confirmed , recovered , deaths} , country}) => {
      const [dailyData , setDailyData] = useState([])
 
      useEffect(() => {
@@ -33,11 +33,33 @@ import  './Chart.css'
        ) : null
      )
 
-   
+     console.log("dsfdsf",confirmed)
+
+     const BarChart = (
+         confirmed ? (
+             <Bar 
+                data={{
+                    labels : ['infected' , 'recovered' , 'deaths'],
+                    datasets : [{
+                        label : 'People',
+                        backgroundColor : [
+                            ' rgba(0, 0, 255, 0.5)',
+                            'rgba(0, 255, 0, 0.5)',
+                            'rgba(255, 0, 0, 0.5)'
+                        ],
+                        data : [confirmed.value , recovered.value , deaths.value]
+                    }]
+                }}
+                options ={{
+                    legends : {display : false},
+                    title : {display : true, text :  `Current state in ${country}`},
+                }}
+             /> 
+         ) : null
+     )
     return (
         <div className="container" >
-            {lineChar}
-           
+            {country ? BarChart : lineChar}
         </div>
     )
 }
