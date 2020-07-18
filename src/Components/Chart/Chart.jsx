@@ -1,9 +1,9 @@
 import React, { useState  , useEffect} from 'react'
 import {fetchDailyData} from '../../Api'
-import { Line  } from 'react-chartjs-2';
+import { Line   } from 'react-chartjs-2';
 import  './Chart.css'
 
- const Charts = () => {
+ const Charts = ({data , country}) => {
      const [dailyData , setDailyData] = useState([])
 
      useEffect(() => {
@@ -32,9 +32,12 @@ import  './Chart.css'
             /> 
        ) : null
      )
+
+   
     return (
         <div className="container" >
             {lineChar}
+           
         </div>
     )
 }
