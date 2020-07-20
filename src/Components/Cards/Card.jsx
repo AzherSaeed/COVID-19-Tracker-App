@@ -4,11 +4,11 @@ import './Card.css';
 import CountUp from 'react-countup';
 
 
- const Cards = ({data : {confirmed , recovered , deaths , lastUpdate}}) => {
+ const Cards = ({data : { confirmed , recovered , deaths , lastUpdate}}) => {
     if(!confirmed){
         return 'Loading....'
     }
-
+    console.log(lastUpdate)
     return (
         <div className= "container" >
            <Grid container spacing={3} justify="center" >
@@ -27,7 +27,7 @@ import CountUp from 'react-countup';
                             />
                         </Typography>
                             <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
-                        <Typography variant="body2" >Real DAta</Typography>
+                        <Typography variant="body2" >Real Data</Typography>
                     </CardContent>
                 </Grid>
 

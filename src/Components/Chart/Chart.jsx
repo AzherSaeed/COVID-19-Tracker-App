@@ -10,7 +10,7 @@ import  './Chart.css'
          const fetchAPI = async () => {
              setDailyData(await fetchDailyData())} 
              fetchAPI()
-     })
+     } , [])
      const lineChar = (
         dailyData.length ? (
             <Line
@@ -32,9 +32,6 @@ import  './Chart.css'
             /> 
        ) : null
      )
-
-     console.log("dsfdsf",confirmed)
-
      const BarChart = (
          confirmed ? (
              <Bar 
