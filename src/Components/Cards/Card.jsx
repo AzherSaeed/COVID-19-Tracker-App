@@ -8,7 +8,6 @@ import CountUp from 'react-countup';
     if(!confirmed){
         return 'Loading....'
     }
-    console.log(lastUpdate)
     return (
         <div className= "container" >
            <Grid container spacing={3} justify="center" >
